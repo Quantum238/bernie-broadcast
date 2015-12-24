@@ -1,0 +1,10 @@
+Facebook no longer allows for indefinite tokens.  The best you can do is:
+
+Have a user login from your app page.  This generates a short lived token.
+Exchange this short lived token for a long lived token on the server side.  This lasts for about 60 days.
+When the long lived token expires, you must direct the user back through the authorization flow.  Simply going to the page with the login button is sufficient to generate a new short token and thus long token (I think).  But the user must actively go to this page - there is no way to trade in a long lived token for a new long lived token.
+
+
+Options:
+	-Email users near expiry time with a link to the page (something like 'Hey, enjoying Broadcast Bernie?  Renew here!')
+	-Create a page and encourage people to like that page, and use an app to just push articles to that page every week or whatever.  The tokens involved here are also 60 day expiry, but one admin renewing the token is probably better than n users doing so?

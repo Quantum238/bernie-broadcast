@@ -53,20 +53,10 @@ class store_token:
 		long_token = store_response_data(post_data)
 		print 22222
 		post_message(long_token)
-		# post_data = json.loads(web.data())
-		# print post_data
-		# lines = post_data['history']
-		# with open('history.csv','wb') as f:
-		# 	writer = csv.writer(f)
-		# 	for line in lines:
-		# 		writer.writerow(line)
 		
 		web.header('Access-Control-Allow-Origin','*')
 		web.header('Access-Control-Allow-Credentials', 'true')
-		# # # web.header('Access-Control-Allow-Methods','GET,POST,OPTIONS')
-		# web.header("Access-Control-Expose-Headers: Access-Control-Allow-Origin")
-		# web.header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept")
-		return json.dumps({'message':'Hey'})
+		return json.dumps({})
 
 	def OPTIONS(self,name):
 		web.header('Access-Control-Allow-Credentials', 'true')
