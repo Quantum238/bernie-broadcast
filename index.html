@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Bernie Broadcast</title>
+		<meta charset="UTF-8">
+		<script src="js/test.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	<body>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '1190134861000130',
+					xfbml      : true,
+					version    : 'v2.5'
+				});
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			};
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		Hi!
+
+		<fb:login-button scope="public_profile,email,publish_actions" onlogin="checkLoginState();">
+		</fb:login-button>
+
+		<div id="status">
+		</div>
+
+	</body>
+</html>
