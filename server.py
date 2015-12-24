@@ -36,23 +36,6 @@ def store_response_data(response):
 	# for now
 	return long_token
 
-
-def refresh_token(old_token):
-	# not sure about this
-	# confirmed no go
-	data = {
-		'grant_type':'fb_exchange_token',
-		'client_id': APP_ID,
-		'client_secret': APP_SECRET,
-		'fb_exchange_token':old_token
-	}
-	r = requests.get('https://graph.facebook.com/oauth/access_token', params = data)
-	print r.text
-	parsed_response = parse_qs(r.text)
-	# this returns a dict where the values are lists
-	# the important keys are 'access_token' and 'expires'
-	return parsed_response['access_token'][0], parsed_response['expires'][0]
-
 def post_message(long_token):
 	print '\n\nposting message with token: ',long_token
 	payload = {
@@ -70,12 +53,6 @@ class store_token:
 		long_token = store_response_data(post_data)
 		print 22222
 		post_message(long_token)
-		print 33333
-		new_token, new_expire = refresh_token(long_token)
-		print 44444
-		print new_token,new_expire
-		post_message(new_token)
-		print 55555
 		# post_data = json.loads(web.data())
 		# print post_data
 		# lines = post_data['history']
